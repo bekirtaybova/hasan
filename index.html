@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sana Bir Sürprizim Var 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      color: #fff;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px #00000055;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+    .ofcourse {
+      background-color: #ffcc00;
+      color: black;
+    }
+    .hearts {
+      position: absolute;
+      top: -10px;
+      font-size: 20px;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Benimle çıkar mısın? 💕</h1>
+  <div>
+    <button class="yes" onclick="answer('Evet 💖')">Evet 💖</button>
+    <button class="ofcourse" onclick="answer('Tabii ki 😍')">Tabii ki 😍</button>
+  </div>
+
+  <script>
+    function answer(choice) {
+      document.body.innerHTML = `<h1>${choice} dediğin için çok mutluyum! 💘<br>Artık resmen birlikteyiz! 💕</h1>`;
+    }
+
+    // Kalpler üret
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("hearts");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  </script>
+</body>
+</html>
